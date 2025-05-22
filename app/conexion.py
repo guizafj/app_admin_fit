@@ -1,9 +1,23 @@
+"""
+Módulo conexion.py
+
+Este módulo define la clase Conexion, que gestiona el pool de conexiones a la base de datos MySQL
+utilizando variables de entorno para la configuración. Permite obtener y liberar conexiones de manera eficiente.
+
+Autor: Francisco Javier Diaz Guiza
+Fecha: 2025
+"""
+
 from mysql.connector import pooling, Error
 from dotenv import load_dotenv
 import os
 
 class Conexion:
-    # Cargar variables de entorno
+    """
+    Clase para gestionar el pool de conexiones a la base de datos MySQL.
+    Utiliza variables de entorno para la configuración y el patrón Singleton para el pool.
+    """
+    # Cargar variables de entorno al cargar la clase
     load_dotenv()
     DATABASE = os.getenv('DATABASE')
     USERNAME = os.getenv('USERNAME')
@@ -16,7 +30,16 @@ class Conexion:
 
     @classmethod
     def obtener_pool(cls):
-        if cls.pool is None:  # Se crea el objeto pool
+        """
+        Obtiene el pool de conexiones. Si no existe, lo crea.
+
+        Returns:
+            MySQLConnectionPool: Pool de conexiones a la base de datos.
+
+        Raises:
+            Exception: Si ocurre un error al crear el pool.
+        """
+        if cls.pool is None:
             try:
                 cls.pool = pooling.MySQLConnectionPool(
                     pool_name=cls.POOL_NAME,
@@ -35,22 +58,35 @@ class Conexion:
 
     @classmethod
     def obtener_conexion(cls):
+        """
+        Obtiene una conexión del pool.
+
+        Returns:
+            MySQLConnection: Conexión activa a la base de datos.
+        """
         return cls.obtener_pool().get_connection()
 
     @classmethod
     def liberar_conexion(cls, conexion):
+        """
+        Libera una conexión, devolviéndola al pool.
+
+        Args:
+            conexion (MySQLConnection): Conexión a liberar.
+        """
         conexion.close()
 
 
 if __name__ == '__main__':
-    # Creamos un objeto pool
+    # Prueba de conexión y pool
     pool = Conexion.obtener_pool()
-    print(pool)
+    print(f'Se obtuvo la conexión: {pool}')
     conexion1 = pool.get_connection()
     print(conexion1)
     Conexion.liberar_conexion(conexion1)
     print('Se ha liberado el objeto conexion1')
 
+    # Mostrar configuración cargada
     print(f"DATABASE: {Conexion.DATABASE}")
     print(f"USERNAME: {Conexion.USERNAME}")
     print(f"PASSWORD: {Conexion.PASSWORD}")

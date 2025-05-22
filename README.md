@@ -1,19 +1,20 @@
-# Sistema de Gestión Zona Fit (GYM) 🏋️‍♂️
+# 🏋️‍♂️ Sistema de Gestión Zona Fit (GYM)
 
-Este proyecto es una aplicación de escritorio desarrollada en Python que permite gestionar clientes y sus membresías en un gimnasio. Fue creado como parte de los laboratorios de formación en Python, y está diseñado para demostrar habilidades en desarrollo de software, manejo de bases de datos y creación de interfaces gráficas.
+Zona Fit es una aplicación de escritorio desarrollada en Python utilizando Tkinter como interfaz gráfica. Permite gestionar clientes y sus membresías en un gimnasio de manera sencilla y eficiente. Este proyecto fue creado como parte de los laboratorios de formación en Python, y está diseñado para demostrar habilidades en desarrollo de software, manejo de bases de datos y creación de interfaces gráficas.
 
-## 🚀 Funcionalidades
+## 🚀 Características Principales
 
-- **Agregar clientes**: Registra nuevos clientes en la base de datos.
-- **Actualizar clientes**: Modifica los datos de un cliente existente.
-- **Eliminar clientes**: Elimina un cliente de la base de datos.
-- **Listar clientes**: Muestra todos los clientes registrados en una tabla interactiva.
-- **Interfaz gráfica**: Diseñada con `tkinter` para una experiencia de usuario sencilla y funcional.
+- **👥 Gestión de Clientes**: Registro, edición y eliminación de información de clientes.
+- **📅 Control de Membresías**: Seguimiento de membresías activas, fechas de vencimiento y renovaciones. (O-D)
+- **📋 Listado de Clientes**: Visualización de todos los clientes registrados en una tabla interactiva.
+- **🔍 Búsqueda y Filtros**:  Funcionalidades para buscar y filtrar clientes según diferentes criterios.(O-D)
+- **🎨 Interfaz Intuitiva**: Diseñada con `tkinter` para una experiencia de usuario sencilla y funcional. (P-M)
 
 ## 🛠️ Tecnologías Utilizadas
 
 - **Lenguaje**: Python 3.8+
 - **Base de datos**: MySQL
+- **Control de Versiones**: Git
 - **Librerías**:
   - `tkinter`: Para la interfaz gráfica.
   - `mysql-connector-python`: Para la conexión con la base de datos.
@@ -86,17 +87,35 @@ app_admin_fit/
 │   ├── __init__.py
 │   ├── cliente.py          # Clase Cliente
 │   ├── cliente_dao.py      # Acceso a datos para Cliente
-│   ├── conexion.py         # Manejo de la conexión a la base de datos
+│   └── conexion.py         # Manejo de la conexión a la base de datos
 ├── app_zona_fit.py         # Archivo principal de la aplicación
 ├── requirements.txt        # Dependencias del proyecto
 ├── .env                    # Variables de entorno (no se sube a GitHub)
 ├── README.md               # Documentación del proyecto
 ├── .gitignore              # Archivos y carpetas a ignorar en Git
 ```
+## 🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas! Si deseas colaborar:
+
+    Haz un fork del repositorio.
+
+    Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
+
+    Realiza tus cambios y haz commit (git commit -m 'Añadir nueva funcionalidad').
+
+    Sube tus cambios a tu fork (git push origin feature/nueva-funcionalidad).
+
+    Abre un Pull Request describiendo tus cambios.
+
+
 
 ## 🧑‍💻 Autor
 
 Este proyecto fue desarrollado por **[Francisco Javier Diaz Guiza](https://github.com/guizafj)** como parte de los laboratorios de formación en Python. Puedes encontrar más información sobre mí en mi [perfil de GitHub](https://github.com/guizafj).
+
+## 📬 Contacto
+   Correo: contacto@dguiza.dev
 
 ## 📝 Licencia
 
